@@ -1,0 +1,66 @@
+# Documentos auxiliares
+HELP.md
+
+# Build
+target/
+build/
+out/
+
+# Maven Wrapper
+.mvn/wrapper/maven-wrapper.jar
+
+# Não ignorar targets/builds dentro do src
+!**/src/main/**/target/
+!**/src/test/**/target/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Eclipse / Spring Tool Suite (STS)
+.apt_generated/
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# VS Code
+.vscode/
+
+# Arquivos de Log
+*.log
+
+# Banco de Dados H2 / arquivos de banco locais
+*.h2.db
+*.mv.db
+*.db
+
+# Arquivo de ambiente
+.env
+
+# Docker
+docker-compose.override.yml
+docker-compose.override.yaml
+
+# Gradle / Maven cache
+.gradle/
+mvnw
+mvnw.cmd
+
+# Arquivos de propriedades separados por ambiente
+**/application-dev.properties
+**/application-prod.properties
+**/application-test.properties
