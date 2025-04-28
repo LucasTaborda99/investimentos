@@ -19,22 +19,23 @@ Este projeto é um sistema de investimentos bancários, onde os usuários podem 
 - **MySQL**: Banco de dados para armazenar informações dos usuários e investimentos.
 - **MapStruct**: Para conversões entre objetos de diferentes camadas (DTOs e Entidades).
 - **JUnit**: Para testes unitários do código.
-- **Docker**: Para containerização do banco de dados MySQL.
 - **H2** (em modo de teste): Para testes locais e rápidos.
 
 ## Configuração
 
-### 1. Banco de Dados
+### Banco de Dados
 
-O projeto utiliza o MySQL como banco de dados principal. Certifique-se de configurar o banco de dados no arquivo `.env` para que o Spring Boot consiga se conectar corretamente.
+O projeto utiliza o MySQL como banco de dados principal. Certifique-se de configurar o banco de dados no arquivo `.env` para que o Spring Boot consiga se conectar corretamente. No arquivo `.env`, defina as seguintes variáveis:
 
-### 2. Variáveis de Ambiente
+### Execução Local
 
-As seguintes variáveis de ambiente devem ser configuradas no arquivo `.env`:
+Para rodar o projeto localmente, certifique-se de que o MySQL esteja instalado e configurado corretamente em sua máquina. Configure as variáveis de ambiente no .env e execute a aplicação através do seguinte comando:
 
-### 3. Docker
+mvn spring-boot:run
 
-Este projeto usa o Docker para rodar um container MySQL. Para levantar o banco de dados, basta executar o seguinte comando:
 
-```bash
-docker-compose up -d
+### .env
+```plaintext
+MYSQL_USER=seuUsuario
+MYSQL_PASSWORD=suaSenha
+
