@@ -20,8 +20,10 @@ public class UserService {
     public UserDto createUser(UserDto userDto) {
         // Convertendo DTO para Entity
         User userEntity = userMapper.toEntity(userDto);
+
         // Salvando entidade no repositório
         User savedUser = userRepository.save(userEntity);
+
         // Convertendo a entidade salva de volta para DTO
         return userMapper.toDto(savedUser);
     }
