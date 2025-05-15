@@ -8,6 +8,9 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class UserService {
     @Autowired
@@ -26,5 +29,12 @@ public class UserService {
 
         // Convertendo a entidade salva de volta para DTO
         return userMapper.toDto(savedUser);
+    }
+
+    public List<UserDto> listUsers() {
+        List<User> users = userRepository.findAll();
+        return users.stream()
+                    .map(userMapper::toDto)
+                    .collect(Collectors.toList());
     }
 }

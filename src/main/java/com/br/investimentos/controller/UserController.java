@@ -4,12 +4,10 @@ import com.br.investimentos.dto.UserDto;
 import com.br.investimentos.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/users")
@@ -29,5 +27,11 @@ public class UserController {
         URI location = URI.create("api/v1/users/" + createdUser.getId());
 
         return ResponseEntity.created(location).body(createdUser);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<UserDto>> listUsers() {
+        List<UserDto> users = userService.listUsers();
+        return ResponseEntity.ok(users);
     }
 }
