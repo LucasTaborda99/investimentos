@@ -23,7 +23,7 @@ public class UserService {
     @Transactional
     public UserDto createUser(UserDto userDto) {
         // Verificando se já existe usuário com o email informado
-        if(!userRepository.findUserByEmail(userDto.getEmail()).isEmpty()){
+        if(userRepository.findUserByEmail(userDto.getEmail()).isPresent()){
             throw new UserAlreadyExistsException("Email is already in use: " + userDto.getEmail() + " .");
         }
 
