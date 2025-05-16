@@ -2,6 +2,7 @@ package com.br.investimentos.service;
 
 import com.br.investimentos.dto.UserDto;
 import com.br.investimentos.entity.User;
+import com.br.investimentos.exception.UserAlreadyExistsException;
 import com.br.investimentos.mapper.UserMapper;
 import com.br.investimentos.repository.UserRepository;
 import jakarta.transaction.Transactional;
@@ -21,6 +22,11 @@ public class UserService {
 
     @Transactional
     public UserDto createUser(UserDto userDto) {
+        // Verificando se já existe usuário com o email informado
+        if(!userRepository.findUserByEmail(userDto.getEmail()).isEmpty()){
+            throw new UserAlreadyExistsException("Email is already in use: " + userDto.getEmail() + " .");
+        }
+
         // Convertendo DTO para Entity
         User userEntity = userMapper.toEntity(userDto);
 
