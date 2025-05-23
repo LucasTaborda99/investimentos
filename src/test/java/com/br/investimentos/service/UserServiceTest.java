@@ -7,6 +7,7 @@ import com.br.investimentos.factory.UserFactory;
 import com.br.investimentos.mapper.UserMapper;
 import com.br.investimentos.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -36,6 +37,7 @@ class UserServiceTest {
     }
 
     @Test
+    @DisplayName("Should return UserDto when a new user is successfully created")
     void createUser_ShouldReturnUserDto_WhenUserIsSaved() {
         // Arrange
         UserDto inputDto = UserDtoFactory.createDefaultUserDto();
