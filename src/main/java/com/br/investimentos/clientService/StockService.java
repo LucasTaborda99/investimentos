@@ -71,7 +71,7 @@ public class StockService {
         return String.format("""
         The stock %s is currently priced at R$ %.2f, with a daily change of %.2f%%.
         Provide a short analysis indicating whether it is a good moment to buy, sell, or hold.
-        Also, classify the investment risk as Low, Medium, or High, all of this in Portuguese.
+        Also, classify the investment risk as Low, Medium, or High, all of this in Portuguese, and at the end say that it is not a recommendation.
         """, stock.symbol(), stock.regularMarketPrice(), stock.regularMarketChangePercent());
     }
 
