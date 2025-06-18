@@ -1,5 +1,6 @@
 package com.br.investimentos.clientController;
 
+import com.br.investimentos.client.clientDto.StockAnalysisResponseDto;
 import com.br.investimentos.client.clientDto.StockResponseDto;
 import com.br.investimentos.clientService.StockService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -24,6 +25,14 @@ public class StockController {
     @GetMapping("/{ticker}")
     public StockResponseDto getStock(@PathVariable String ticker) {
         return stockService.getStockData(ticker);
+    }
+
+    @Operation(summary = "Get stock analysis", description = "Returns stock analysis")
+    @ApiResponse(responseCode = "200", description = "Successful response")
+    @ApiResponse(responseCode = "404", description = "Stock analysis not found")
+    @GetMapping("/analysis/{ticker}")
+    public StockAnalysisResponseDto getStockAnalysis(@PathVariable String ticker) {
+        return stockService.getStockAnalysis(ticker);
     }
 
 }
