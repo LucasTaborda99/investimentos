@@ -1,41 +1,98 @@
-# Projeto de Investimentos - Sistema Bancário
+# 📈 Projeto de Investimentos com Java, Spring Boot e Inteligência Artificial
 
-## Descrição
+## 🧠 Descrição
 
-Este projeto é um sistema de investimentos bancários, onde os usuários podem gerenciar suas contas, visualizar o saldo e realizar investimentos. O sistema também integra com uma API externa para consultar os preços das ações da bolsa de valores brasileira.
+Este projeto é uma API RESTful desenvolvida com **Java + Spring Boot**, focada na integração de dados do mercado financeiro com **Inteligência Artificial**. O sistema permite consultar informações de ações da bolsa brasileira em tempo real e fornece uma **análise automatizada de investimento**, utilizando um modelo de IA via **OpenRouter (Mistral 7B)**.
 
-## Funcionalidades
+O objetivo é simular uma solução que auxilia usuários a tomarem decisões com base em dados reais e recomendações inteligentes.
 
-- Cadastro de usuários
-- Gestão de contas bancárias (saques, depósitos e saldo)
-- Investimentos em ações (com consulta ao preço atual das ações)
-- Consulta de preço de ações em tempo real via API externa
-- Armazenamento das informações no banco de dados MySQL
+---
 
-## Tecnologias Utilizadas
+## 🚀 Funcionalidades
 
-- **Spring Boot**: Framework principal para desenvolvimento do back-end.
-- **JPA/Hibernate**: Para persistência de dados no banco de dados.
-- **MySQL**: Banco de dados para armazenar informações dos usuários e investimentos.
-- **MapStruct**: Para conversões entre objetos de diferentes camadas (DTOs e Entidades).
-- **JUnit**: Para testes unitários do código.
-- **H2** (em modo de teste): Para testes locais e rápidos.
+- 🔎 Consulta de ações em tempo real via [API BRAPI](https://brapi.dev/)
+- 🤖 Análise inteligente das ações com agente de IA (OpenRouter)
+- 📊 Exibição de preço atual e variação percentual diária
+- 🧠 Recomendações automáticas de **compra**, **venda** ou **manutenção**
+- 🧪 Testes unitários com JUnit e Mockito (padrão AAA)
+- 🌐 Documentação interativa com Swagger UI
 
-## Configuração
+---
 
-### Banco de Dados
+## 🛠️ Tecnologias Utilizadas
 
-O projeto utiliza o MySQL como banco de dados principal. Certifique-se de configurar o banco de dados no arquivo `.env` para que o Spring Boot consiga se conectar corretamente. No arquivo `.env`, defina as seguintes variáveis:
+- **Java 17**
+- **Spring Boot**
+- **Spring Web (RESTful APIs)**
+- **Lombok**
+- **MapStruct**
+- **MySQL** (persistência)
+- **JPA / Hibernate**
+- **Swagger / OpenAPI**
+- **JUnit 5 + Mockito**
+- **Integração com API externa (BRAPI)**
+- **Integração com OpenRouter (modelo Mistral 7B)**
 
-### Execução Local
+---
 
-Para rodar o projeto localmente, certifique-se de que o MySQL esteja instalado e configurado corretamente em sua máquina. Configure as variáveis de ambiente no .env e execute a aplicação através do seguinte comando:
+## 💾 Banco de Dados
 
-mvn spring-boot:run
+O projeto utiliza **MySQL** como banco de dados principal.
 
 
-### .env
-```plaintext
+## 📂 Organização do Projeto
+controller: endpoints da API REST
+
+service: regras de negócio e integração com IA
+
+dto: transferência de dados
+
+client: consumo de APIs externas (BRAPI, OpenRouter)
+
+config: configurações globais
+
+tests: testes unitários com cobertura AAA
+
+## 🎯 Objetivo
+Este projeto foi desenvolvido como prática para reforçar conhecimentos em:
+
+Desenvolvimento backend com Spring Boot
+
+Integração com serviços externos via API
+
+Uso de modelos de linguagem (LLMs) em cenários reais
+
+Criação de projetos prontos para produção
+
+## 📌 Próximos passos
+Criar uma interface front-end
+
+Armazenar histórico de análises
+
+Melhorar a estrutura de logs e tratamento de erros
+
+## 📎 Este projeto também está sendo divulgado no meu LinkedIn como portfólio.
+Contribuições, sugestões ou feedbacks são sempre bem-vindos!
+
+### 📄 `.env` - Configuração necessária
+
+```env
 MYSQL_USER=seuUsuario
 MYSQL_PASSWORD=suaSenha
+OPENROUTER_TOKEN=suaChaveDaOpenRouter
+Obs: Você deve configurar seu token pessoal da OpenRouter (https://openrouter.ai) para ativar a análise por IA.
 
+▶️ Execução Local
+Certifique-se de ter o MySQL instalado e configurado corretamente. Após clonar o repositório:
+
+Crie o arquivo .env com suas variáveis.
+
+Execute o projeto com o comando abaixo:
+
+bash
+Copiar
+Editar
+mvn spring-boot:run
+
+Acesse a documentação Swagger em:
+http://localhost:8080/swagger-ui.html
